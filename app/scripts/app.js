@@ -56,11 +56,6 @@ Instructions:
         reject('Network Error');
       };
       req.send();
-    }).then(function(response) {
-      return addSearchHeader(response);
-    }).catch(function(error) {
-      console.log(error);
-      return addSearchHeader('unknown');
     });
   }
 
@@ -71,6 +66,11 @@ Instructions:
     You'll need to add a .then and a .catch. Pass the response to addSearchHeader on resolve or
     pass 'unknown' to addSearchHeader if it rejects.
      */
-    get('../data/earth-like-results.json');
+    get('../data/earth-like-results.json').then(function(response) {
+      return addSearchHeader(response);
+    }).catch(function(error) {
+      console.log(error);
+      return addSearchHeader('unknown');
+    });
   });
 })(document);
