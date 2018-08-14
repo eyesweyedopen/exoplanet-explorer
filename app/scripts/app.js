@@ -36,7 +36,7 @@ Instructions:
     /*
     This code needs to get wrapped in a Promise!
      */
-    const promise = new Promise(function(resolve, reject) {
+    return new Promise(function(resolve, reject) {
       var req = new XMLHttpRequest();
       req.open('GET', url);
       req.onload = function() {
